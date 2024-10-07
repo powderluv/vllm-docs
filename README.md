@@ -96,9 +96,9 @@ Similarly, you can download Meta-Llama-3.1-70B and Meta-Llama-3.1-8B.
 Run the quantization script in the example folder using the following command line:
 export MODEL_DIR = [local model checkpoint folder] or meta-llama/Meta-Llama-3.1-405B-Instruct
 #### single GPU
-        python3 quantize_quark.py \ 
+    python3 quantize_quark.py \
         --model_dir $MODEL_DIR \
-        --output_dir Meta-Llama-3.1-405B-Instruct-FP8-KV \                           
+        --output_dir Meta-Llama-3.1-405B-Instruct-FP8-KV \
         --quant_scheme w_fp8_a_fp8 \
         --kv_cache_dtype fp8 \
         --num_calib_data 128 \
@@ -106,9 +106,9 @@ export MODEL_DIR = [local model checkpoint folder] or meta-llama/Meta-Llama-3.1-
         --no_weight_matrix_merge
 
 #### If model size is too large for single GPU, please use multi GPU instead.
-        python3 quantize_quark.py \ 
+    python3 quantize_quark.py \
         --model_dir $MODEL_DIR \
-        --output_dir Meta-Llama-3.1-405B-Instruct-FP8-KV \                           
+        --output_dir Meta-Llama-3.1-405B-Instruct-FP8-KV \
         --quant_scheme w_fp8_a_fp8 \
         --kv_cache_dtype fp8 \
         --num_calib_data 128 \
