@@ -116,9 +116,9 @@ Similarly, you can download Meta-Llama-3.1-70B and Meta-Llama-3.1-8B.
 Run the quantization script in the example folder using the following command line:
 export MODEL_DIR = [local model checkpoint folder] or meta-llama/Meta-Llama-3.1-405B-Instruct
 #### single GPU
-        python3 quantize_quark.py \ 
+    python3 quantize_quark.py \
         --model_dir $MODEL_DIR \
-        --output_dir Meta-Llama-3.1-405B-Instruct-FP8-KV \                           
+        --output_dir Meta-Llama-3.1-405B-Instruct-FP8-KV \
         --quant_scheme w_fp8_a_fp8 \
         --kv_cache_dtype fp8 \
         --num_calib_data 128 \
@@ -126,9 +126,9 @@ export MODEL_DIR = [local model checkpoint folder] or meta-llama/Meta-Llama-3.1-
         --no_weight_matrix_merge
 
 #### If model size is too large for single GPU, please use multi GPU instead.
-        python3 quantize_quark.py \ 
+    python3 quantize_quark.py \
         --model_dir $MODEL_DIR \
-        --output_dir Meta-Llama-3.1-405B-Instruct-FP8-KV \                           
+        --output_dir Meta-Llama-3.1-405B-Instruct-FP8-KV \
         --quant_scheme w_fp8_a_fp8 \
         --kv_cache_dtype fp8 \
         --num_calib_data 128 \
@@ -383,8 +383,8 @@ PyTorch 2.5dev (nightly)
 | Component | Commit/Link |
 | -- | -- |
 | Base Docker | rocm/pytorch:rocm6.2_ubuntu22.04_py3.9_pytorch_release_2.2.1 |
-| Pytorch Commit |[https://github.com/ROCm/pytorch/commit/c4d355377af3b1c48b37e05f81293c65f25689aa](https://github.com/ROCm/pytorch/commit/c4d355377af3b1c48b37e05f81293c65f25689aa "https://github.com/rocm/pytorch/commit/c4d355377af3b1c48b37e05f81293c65f25689aa")
-| Pytoch wheels | [http://rocm-ci.amd.com/view/Release-6.2/job/pytorch-pipeline-manylinux-wheel-builder_rel-6.2/315/execution/node/169/ws/final_pkgs/](http://rocm-ci.amd.com/view/Release-6.2/job/pytorch-pipeline-manylinux-wheel-builder_rel-6.2/315/execution/node/169/ws/final_pkgs/ "http://rocm-ci.amd.com/view/release-6.2/job/pytorch-pipeline-manylinux-wheel-builder_rel-6.2/315/execution/node/169/ws/final_pkgs/")
+| PyTorch Commit |[https://github.com/ROCm/pytorch/commit/c4d355377af3b1c48b37e05f81293c65f25689aa](https://github.com/ROCm/pytorch/commit/c4d355377af3b1c48b37e05f81293c65f25689aa "https://github.com/rocm/pytorch/commit/c4d355377af3b1c48b37e05f81293c65f25689aa")
+| PyTorch wheels | [http://rocm-ci.amd.com/view/Release-6.2/job/pytorch-pipeline-manylinux-wheel-builder_rel-6.2/315/execution/node/169/ws/final_pkgs/](http://rocm-ci.amd.com/view/Release-6.2/job/pytorch-pipeline-manylinux-wheel-builder_rel-6.2/315/execution/node/169/ws/final_pkgs/ "http://rocm-ci.amd.com/view/release-6.2/job/pytorch-pipeline-manylinux-wheel-builder_rel-6.2/315/execution/node/169/ws/final_pkgs/")
 | apex | [https://github.com/ROCm/apex/commit/ac13eaffb8a3dd8d574979263aa24bce2a5966a4](https://github.com/ROCm/apex/commit/ac13eaffb8a3dd8d574979263aa24bce2a5966a4 "https://github.com/rocm/apex/commit/ac13eaffb8a3dd8d574979263aa24bce2a5966a4")
 | torchvision |[https://github.com/pytorch/vision/commit/48b1edffdc6f34b766e2b4bbf23b78bd4df94181](https://github.com/pytorch/vision/commit/48b1edffdc6f34b766e2b4bbf23b78bd4df94181 "https://github.com/pytorch/vision/commit/48b1edffdc6f34b766e2b4bbf23b78bd4df94181")
 | torchdata |[https://github.com/pytorch/data/commit/5e6f7b7dc5f8c8409a6a140f520a045da8700451](https://github.com/pytorch/data/commit/5e6f7b7dc5f8c8409a6a140f520a045da8700451 "https://github.com/pytorch/data/commit/5e6f7b7dc5f8c8409a6a140f520a045da8700451")
