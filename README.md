@@ -302,7 +302,10 @@ Benchmark Meta-Llama-3.1-70B with input 4096 tokens, output 512 tokens and tenso
     --kv-cache-dtype fp8 \
     --dtype float16 \
     --max-model-len 8192 \
-    --tensor-parallel-size 8
+    --tensor-parallel-size 8 \
+    --max-num-batched-tokens 65536 \
+    --gpu-memory-utilization 0.99 \
+    --num_scheduler-steps 10
  
 Change port (for example --port 8005) if port=8000 is currently being used by other processes.
  
