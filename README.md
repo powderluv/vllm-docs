@@ -379,33 +379,20 @@ Please refer to the MLPerf instructions for recreating the MLPerf numbers.
 
 Updated:
 
-torchvision: https://github.com/ROCm/vision/commit/fab848869c0f88802297bad43c0ad80f33ecabb4/
-
-vLLM: https://github.com/ROCm/vllm/commit/6f35c77845068dcc90c222fdfd1b56c3db149ad1
+vLLM: https://github.com/ROCm/vllm/commit/165837071089100caeabb364abe81085d976bc72
 
 ### Docker Manifest
-ROCm6.2 GA + patches
-tip-of-tree (hipBLASLT, rocBLAS, Flash-attention, CK, Triton, MIOpen, RCCL, Apex)
-Python 3.9
-Ubuntu 22
-PyTorch 2.5dev (nightly)
 
- 
+To reproduce the release docker:
 
-| Component | Commit/Link |
-| -- | -- |
-| Base Docker | rocm/pytorch:rocm6.2_ubuntu22.04_py3.9_pytorch_release_2.2.1 |
-| Pytorch Commit |[https://github.com/ROCm/pytorch/commit/c4d355377af3b1c48b37e05f81293c65f25689aa](https://github.com/ROCm/pytorch/commit/c4d355377af3b1c48b37e05f81293c65f25689aa "https://github.com/rocm/pytorch/commit/c4d355377af3b1c48b37e05f81293c65f25689aa")
-| Pytoch wheels | [http://rocm-ci.amd.com/view/Release-6.2/job/pytorch-pipeline-manylinux-wheel-builder_rel-6.2/315/execution/node/169/ws/final_pkgs/](http://rocm-ci.amd.com/view/Release-6.2/job/pytorch-pipeline-manylinux-wheel-builder_rel-6.2/315/execution/node/169/ws/final_pkgs/ "http://rocm-ci.amd.com/view/release-6.2/job/pytorch-pipeline-manylinux-wheel-builder_rel-6.2/315/execution/node/169/ws/final_pkgs/")
-| apex | [https://github.com/ROCm/apex/commit/ac13eaffb8a3dd8d574979263aa24bce2a5966a4](https://github.com/ROCm/apex/commit/ac13eaffb8a3dd8d574979263aa24bce2a5966a4 "https://github.com/rocm/apex/commit/ac13eaffb8a3dd8d574979263aa24bce2a5966a4")
-| torchvision |[https://github.com/pytorch/vision/commit/48b1edffdc6f34b766e2b4bbf23b78bd4df94181](https://github.com/pytorch/vision/commit/48b1edffdc6f34b766e2b4bbf23b78bd4df94181 "https://github.com/pytorch/vision/commit/48b1edffdc6f34b766e2b4bbf23b78bd4df94181")
-| torchdata |[https://github.com/pytorch/data/commit/5e6f7b7dc5f8c8409a6a140f520a045da8700451](https://github.com/pytorch/data/commit/5e6f7b7dc5f8c8409a6a140f520a045da8700451 "https://github.com/pytorch/data/commit/5e6f7b7dc5f8c8409a6a140f520a045da8700451")
-| hipblaslt |[https://github.com/ROCm/hipBLASLt/commit/3f6a167cc3e2aa3f6be7a48b53c67e482628c910](https://github.com/ROCm/hipBLASLt/commit/3f6a167cc3e2aa3f6be7a48b53c67e482628c910 "https://github.com/rocm/hipblaslt/commit/3f6a167cc3e2aa3f6be7a48b53c67e482628c910")
-|RocBLAS |[https://github.com/ROCm/rocBLAS/commit/9b1bd5ab663b2cd9669e90eda1a2bc9382a8c72d](https://github.com/ROCm/rocBLAS/commit/9b1bd5ab663b2cd9669e90eda1a2bc9382a8c72d "https://github.com/rocm/rocblas/commit/9b1bd5ab663b2cd9669e90eda1a2bc9382a8c72d")
-| CK |[https://github.com/ROCm/composable_kernel/commit/c8b6b64240e840a7decf76dfaa13c37da5294c4a](https://github.com/ROCm/composable_kernel/commit/c8b6b64240e840a7decf76dfaa13c37da5294c4a "https://github.com/rocm/composable_kernel/commit/c8b6b64240e840a7decf76dfaa13c37da5294c4a")
-| RCCL |[https://github.com/ROCm/rccl/commit/d3171b51b7a5808bd5b984ddbed3a43ffabdc2fe](https://github.com/ROCm/rccl/commit/d3171b51b7a5808bd5b984ddbed3a43ffabdc2fe "https://github.com/rocm/rccl/commit/d3171b51b7a5808bd5b984ddbed3a43ffabdc2fe")|
-MIOpen |[https://github.com/ROCm/MIOpen/commit/4be2a0339f5aeddec46f938c99e02e5ee885b99f](https://github.com/ROCm/MIOpen/commit/4be2a0339f5aeddec46f938c99e02e5ee885b99f "https://github.com/rocm/miopen/commit/4be2a0339f5aeddec46f938c99e02e5ee885b99f")
-| triton |[https://github.com/triton-lang/triton/commit/0e9267202532ed1709dcc12c636220cf239dc377](https://github.com/triton-lang/triton/commit/0e9267202532ed1709dcc12c636220cf239dc377 "https://github.com/triton-lang/triton/commit/0e9267202532ed1709dcc12c636220cf239dc377")
-| Flash-attention |[https://github.com/ROCm/flash-attention/commit/28e7f4ddbd6924c0533bc0cb151f9485e94846a4](https://github.com/ROCm/flash-attention/commit/28e7f4ddbd6924c0533bc0cb151f9485e94846a4 "https://github.com/rocm/flash-attention/commit/28e7f4ddbd6924c0533bc0cb151f9485e94846a4")
-| vllm |[https://github.com/ROCm/vllm/commit/7c5fd50478803e12a0a4ba6050dc4ed63188a651](https://github.com/ROCm/vllm/commit/7c5fd50478803e12a0a4ba6050dc4ed63188a651 "https://github.com/rocm/vllm/commit/7c5fd50478803e12a0a4ba6050dc4ed63188a651")
-|rccl-tests |[https://github.com/ROCm/rccl-tests/commit/52aee698fa255c1eb081d1f33368cca1a82b1b67](https://github.com/ROCm/rccl-tests/commit/52aee698fa255c1eb081d1f33368cca1a82b1b67 "https://github.com/rocm/rccl-tests/commit/52aee698fa255c1eb081d1f33368cca1a82b1b67") |
+```
+git clone https://github.com/ROCm/vllm.git
+cd vllm
+git checkout 165837071089100caeabb364abe81085d976bc72
+docker build -f Dockerfile.rocm -t <your_tag> --build-arg BUILD_HIPBLASLT=1 --build-arg USE_CYTHON=1 .
+```
+
+For details on all the dependecies, please refer to: https://github.com/ROCm/vllm/blob/165837071089100caeabb364abe81085d976bc72/Dockerfile.rocm
+
+
+
