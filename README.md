@@ -392,7 +392,7 @@ git checkout 165837071089100caeabb364abe81085d976bc72
 docker build -f Dockerfile.rocm -t <your_tag> --build-arg BUILD_HIPBLASLT=1 --build-arg USE_CYTHON=1 .
 ```
 
-For details on all the dependecies, please refer to: https://github.com/ROCm/vllm/blob/165837071089100caeabb364abe81085d976bc72/Dockerfile.rocm
+For details on all the dependencies, please refer to: https://github.com/ROCm/vllm/blob/165837071089100caeabb364abe81085d976bc72/Dockerfile.rocm
 
 
 
