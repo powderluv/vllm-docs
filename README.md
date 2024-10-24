@@ -153,7 +153,7 @@ Check if NUMA balancing is disabled (returns 0 if disabled)
 
 Some environment variables enhance the performance of the vLLM kernels and PyTorch's tunableOp on the MI300X accelerator. The settings below are already preconfigured in the Docker image. See the AMD Instinct MI300X workload optimization guide for more information.
 
-##### vLLM performance settings
+##### vLLM performance environment variables
 
     export VLLM_USE_TRITON_FLASH_ATTN=0
     export NCCL_MIN_NCHANNELS=112
@@ -165,9 +165,22 @@ It will take some time to complete the tuning during the benchmark. After tuning
 PYTORCH_TUNABLEOP_ENABLED as 1 and set 
 PYTORCH_TUNABLEOP_TUNING to 0 to use the selected kernels. 
 
-#### Limited Online Tuning for Llama 70B upto Batch size 8
+##### vLLM engine performance settings
+vLLM provides a number of engine options which can be changed to improve performance. 
+Refer https://docs.vllm.ai/en/stable/models/engine_args.html for the complete list of vLLM engine options.
+Below is a list of options which are useful:
+- **--max-model-len** : Maximum context length supported by the model instance. Can be set to a lower value than model configuration value to improve performance and gpu memory utilization.
+- **--max-num-batched-tokens** : The maximum prefill size, i.e., how many prompt tokens can be packed together in a single prefill. Set to a higher value to improve prefill performance at the cost of higher gpu memory utilization. 65536 works well for LLama models.
+- **--max-num-seqs** : The maximum decode batch size. Set to a value higher than the default(256) to improve decode throughput. Higher values will also utilize more KV cache memory. Too high values can cause KV cache space to run out which will lead to decode preemption. 512/1024 works well for LLama models.
+- **--max-seq-len-to-capture** : Maximum sequence length for which Hip-graphs are captured and utilized. It's recommended to use Hip-graphs for the best decode performance. The default value of this parameter is 8K, which is lower than the large context lengths supported by recent models such as LLama. Set this parameter to max-model-len or maximum context length supported by the model for best performance.
+- **--gpu-memory-utilization** : The ratio of GPU memory reserved by a vLLM instance. Default value is 0.9. It's recommended to set this to 0.99 to increase KV cache space.
 
-If you want to do limited online tuning use --enforce-eager and tun for particular batch sizes. See example below.
+Note: vLLM's server creation command line (vllm serve) supports the above parameters as command line arguments. However, vLLM's benchmark_latency and benchmark_throughput command lines may not include all of these flags as command line arguments. In that case, it might be necessary to add these parameters to the LLMEngine instance constructor inside the benchmark script. 
+  
+##### Online Gemm Tuning
+Online Gemm tuning for small decode batch sizes can improve performance in some cases. e.g. Llama 70B upto Batch size 8
+
+If you want to do limited online tuning use --enforce-eager and tune for particular batch sizes. See example below.
 
         export PYTORCH_TUNABLEOP_TUNING=1
         export PYTORCH_TUNABLEOP_ENABLED=1
