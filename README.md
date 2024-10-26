@@ -39,9 +39,9 @@ The performance data below was measured on a server with MI300X accelerators wit
 | Power cap | 750 W |
 | SCLK/MCLK | 2100 Mhz / 1300 Mhz |
 
-## Pull latest Docker
+## Pull latest 
 
-You can pull the image with `docker pull rocm/vllm-dev:20241018`
+You can pull the image with `docker pull rocm/vllm-dev:20241023`
 
 ### What is New
 
@@ -130,7 +130,7 @@ Download and launch the docker,
     --cap-add=CAP_SYS_ADMIN --cap-add=SYS_PTRACE \
     --device=/dev/kfd --device=/dev/dri --device=/dev/mem \
     -v /data/llama-3.1:/data/llm \
-    docker pull rocm/vllm-dev:20241018
+    docker pull rocm/vllm-dev:20241023
 
 ### Benchmark with AMD vLLM Docker
 
