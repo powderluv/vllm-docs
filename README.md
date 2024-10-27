@@ -10,9 +10,9 @@ This documentation shows some reference performance numbers and the steps to rep
 
 It includes:
 
-   -  ROCm™ 6.2
+   -  ROCm™ 6.2.1
 
-   - vLLM 0.6.1
+   - vLLM 0.6.3
 
    - PyTorch 2.5dev (nightly)
 
@@ -41,11 +41,11 @@ The performance data below was measured on a server with MI300X accelerators wit
 
 ## Pull latest 
 
-You can pull the image with `docker pull rocm/vllm-dev:20241023`
+You can pull the image with `docker pull rocm/vllm-dev:20241025-tuned`
 
 ### What is New
 
-   - Workaround for 7B regression
+   - LLaMa 70B and LLaMa 405B FP8 GEMM tuning charts
       
      
 Gemms are tuned using PyTorch's Tunable Ops  feature (https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/cuda/tunable/README.md)
@@ -130,7 +130,7 @@ Download and launch the docker,
     --cap-add=CAP_SYS_ADMIN --cap-add=SYS_PTRACE \
     --device=/dev/kfd --device=/dev/dri --device=/dev/mem \
     -v /data/llama-3.1:/data/llm \
-    docker pull rocm/vllm-dev:20241023
+    docker pull rocm/vllm-dev:20241025-tuned
 
 ### Benchmark with AMD vLLM Docker
 
