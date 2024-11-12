@@ -365,6 +365,20 @@ Set GPU to SPX mode.
 
     rocm-smi --setcomputepartition spx
 
+### Speculative Decoding
+
+Speculative decoding is one of the key features in vLLM. It has been supported on MI300. Here below is an example of the performance benchmark w/wo speculative decoding for Llama 3.1 405B with Llama 3.1 8B as the draft model. 
+
+Without Speculative Decoding - 
+
+     python benchmark_latency.py --model /models/models--amd--Meta-Llama-3.1-405B-Instruct-FP8-KV/ --max-model-len 26720 -tp 8 --batch-size 1 --use-v2-block-manager --input-len 1024 --output-len 128PYTORCH_TUNABLEOP_TUNING=1
+
+With Speculative Decoding - 
+
+     python benchmark_latency.py --model /models/models--amd--Meta-Llama-3.1-405B-Instruct-FP8-KV/ --max-model-len 26720 -tp 8 --batch-size 1 --use-v2-block-manager --input-len 1024 --output-len 128 --speculative-model /models/models--amd--Meta-Llama-3.1-8B-Instruct-FP8-KV/ --num-speculative-tokens 5
+
+You should see some performance improvement about the e2e latency. 
+
 ### MMLU_PRO_Biology Accuracy Eval
  
 ### fp16
