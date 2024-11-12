@@ -10,7 +10,7 @@ This documentation shows some reference performance numbers and the steps to rep
 
 It includes:
 
-   -  ROCm™ 6.2.1
+   -  ROCm™ 6.2.2
 
    - vLLM 0.6.3
 
@@ -41,7 +41,7 @@ The performance data below was measured on a server with MI300X accelerators wit
 
 ## Pull latest 
 
-You can pull the image with `docker pull rocm/vllm-dev:20241031-tuned`
+You can pull the image with `docker pull rocm/vllm-dev:20241109-tuned`
 
 ### What is New
 
@@ -49,7 +49,7 @@ You can pull the image with `docker pull rocm/vllm-dev:20241031-tuned`
       
      
 Gemms are tuned using PyTorch's Tunable Ops  feature (https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/cuda/tunable/README.md)
-The tuned gemms are automatically enabled in the docker image, and all stored gemm configs are kept in /app/tuned_gemm_csv in the same image
+The  gemms are automatically enabled in the docker image, and all stored gemm configs are kept in /app/_gemm_csv in the same image
 
 ### Reproducing benchmark results
 
@@ -130,7 +130,7 @@ Download and launch the docker,
     --cap-add=CAP_SYS_ADMIN --cap-add=SYS_PTRACE \
     --device=/dev/kfd --device=/dev/dri --device=/dev/mem \
     -v /data/llama-3.1:/data/llm \
-    docker pull rocm/vllm-dev:20241031-tuned
+    docker pull rocm/vllm-dev:20241109-tuned
 
 ### Benchmark with AMD vLLM Docker
 
