@@ -411,7 +411,7 @@ Please refer to the MLPerf instructions for recreating the MLPerf numbers.
 
 Updated:
 
-vLLM: https://github.com/ROCm/vllm/commit/1ef171e0fab0fd08f13b9f9411675a4860082b18
+vLLM: https://github.com/ROCm/vllm/commit/1dcc5dfb0d0ef49903fdce147f445f84dae2e375
 ### Docker Manifest
 
 To reproduce the release docker:
@@ -419,11 +419,11 @@ To reproduce the release docker:
 ```
 git clone https://github.com/ROCm/vllm.git
 cd vllm
-git checkout 1ef171e0fab0fd08f13b9f9411675a4860082b18
+git checkout 1dcc5dfb0d0ef49903fdce147f445f84dae2e375
 docker build -f Dockerfile.rocm -t <your_tag> --build-arg BUILD_HIPBLASLT=1 --build-arg USE_CYTHON=1 .
 ```
 
-For details on all the dependencies, please refer to: https://github.com/ROCm/vllm/blob/1ef171e0fab0fd08f13b9f9411675a4860082b18/Dockerfile.rocm
+For details on all the dependencies, please refer to: https://github.com/ROCm/vllm/blob/1dcc5dfb0d0ef49903fdce147f445f84dae2e375/Dockerfile.rocm
 
 
 
