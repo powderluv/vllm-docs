@@ -45,7 +45,9 @@ You can pull the image with `docker pull rocm/vllm-dev:20241109-tuned`
 
 ### What is New
 
-   - LLaMa 70B and LLaMa 405B FP8 GEMM tuning charts
+   - Rebase to ROCm 6.2.2
+   - Speculative decoding support
+   - Mixtral 8x22B and 8x7B support
       
      
 Gemms are tuned using PyTorch's Tunable Ops  feature (https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/cuda/tunable/README.md)
