@@ -373,7 +373,7 @@ Speculative decoding is one of the key features in vLLM. It has been supported o
 
 Without Speculative Decoding - 
 
-     python benchmark_latency.py --model /models/models--amd--Meta-Llama-3.1-405B-Instruct-FP8-KV/ --max-model-len 26720 -tp 8 --batch-size 1 --use-v2-block-manager --input-len 1024 --output-len 128PYTORCH_TUNABLEOP_TUNING=1
+     python benchmark_latency.py --model /models/models--amd--Meta-Llama-3.1-405B-Instruct-FP8-KV/ --max-model-len 26720 -tp 8 --batch-size 1 --use-v2-block-manager --input-len 1024 --output-len 128
 
 With Speculative Decoding - 
 
