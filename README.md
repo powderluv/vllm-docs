@@ -41,7 +41,7 @@ The performance data below was measured on a server with MI300X accelerators wit
 
 ## Pull latest 
 
-You can pull the image with `docker pull rocm/vllm-dev:20241109-tuned`
+You can pull the image with `docker pull rocm/vllm-dev:20241114-tuned`
 
 ### What is New
 
@@ -132,7 +132,7 @@ Download and launch the docker,
     --cap-add=CAP_SYS_ADMIN --cap-add=SYS_PTRACE \
     --device=/dev/kfd --device=/dev/dri --device=/dev/mem \
     -v /data/llama-3.1:/data/llm \
-    docker pull rocm/vllm-dev:20241109-tuned
+    docker pull rocm/vllm-dev:20241114-tuned
 
 ### Benchmark with AMD vLLM Docker
 
@@ -411,7 +411,7 @@ Please refer to the MLPerf instructions for recreating the MLPerf numbers.
 
 Updated:
 
-vLLM: https://github.com/ROCm/vllm/commit/1dcc5dfb0d0ef49903fdce147f445f84dae2e375
+vLLM: https://github.com/ROCm/vllm/commit/5362727ec366c1542b2be7a520e7c44e5cc3ce30
 ### Docker Manifest
 
 To reproduce the release docker:
@@ -419,11 +419,11 @@ To reproduce the release docker:
 ```
 git clone https://github.com/ROCm/vllm.git
 cd vllm
-git checkout 1dcc5dfb0d0ef49903fdce147f445f84dae2e375
+git checkout 5362727ec366c1542b2be7a520e7c44e5cc3ce30
 docker build -f Dockerfile.rocm -t <your_tag> --build-arg BUILD_HIPBLASLT=1 --build-arg USE_CYTHON=1 .
 ```
 
-For details on all the dependencies, please refer to: https://github.com/ROCm/vllm/blob/1dcc5dfb0d0ef49903fdce147f445f84dae2e375/Dockerfile.rocm
+For details on all the dependencies, please refer to: https://github.com/ROCm/vllm/blob/5362727ec366c1542b2be7a520e7c44e5cc3ce30/Dockerfile.rocm
 
 
 
