@@ -23,7 +23,7 @@ The performance data below was measured on a server with MI300X accelerators wit
 | System  | MI300X with 8 GPUs  |
 |---|---|
 | BKC | 24.11 |
-| ROCm | version ROCm 6.2.0 |
+| ROCm | version ROCm 6.2.2 |
 | amdgpu | build 2009461 |
 | OS | Ubuntu 22.04 |
 | Linux Kernel | 5.15.0-117-generic |
@@ -45,9 +45,8 @@ You can pull the image with `docker pull rocm/vllm-dev:20241114-tuned`
 
 ### What is New
 
-   - Rebase to ROCm 6.2.2
-   - Speculative decoding support
-   - Mixtral 8x22B and 8x7B support
+   - MoE optimizations for Mixtral 8x22B, FP16
+   - Llama 3.2 stability improvements
       
      
 Gemms are tuned using PyTorch's Tunable Ops  feature (https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/cuda/tunable/README.md)
