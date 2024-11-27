@@ -268,7 +268,7 @@ If you want to run Meta-Llama-3.1-405B FP16, please run
     python /app/vllm/benchmarks/benchmark_throughput.py \
     --model /data/llm/Meta-Llama-3.1-405B-Instruct \
     --dtype float16 \
-    --gpu-memory-utilization 0.99 \
+    --gpu-memory-utilization 0.9 \
     --num-prompts 2000 \
     --distributed-executor-backend mp \
     --num-scheduler-steps 10 \
@@ -278,6 +278,8 @@ If you want to run Meta-Llama-3.1-405B FP16, please run
     --swap-space 16 \
     --max-model-len 8192 \
     --max-num-batched-tokens 65536 \
+    --swap-space
+    --max-model-len
     --gpu-memory-utilization 0.99
 
 For fp8 quantized Llama3.18B/70B models:
