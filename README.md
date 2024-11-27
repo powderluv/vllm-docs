@@ -275,8 +275,8 @@ If you want to run Meta-Llama-3.1-405B FP16, please run
     --tensor-parallel-size 8 \
     --input-len 128 \
     --output-len 128 \
-    --swapspace 16 \
-    --max-model-length 8192 \
+    --swap-space 16 \
+    --max-model-len 8192 \
     --max-num-batched-tokens 65536 \
     --gpu-memory-utilization 0.99
 
