@@ -22,7 +22,7 @@ The performance data below was measured on a server with MI300X accelerators wit
 
 | System  | MI300X with 8 GPUs  |
 |---|---|
-| BKC | 24.11 |
+| BKC | 24.13 |
 | ROCm | version ROCm 6.2.2 |
 | amdgpu | build 2009461 |
 | OS | Ubuntu 22.04 |
@@ -131,7 +131,7 @@ Download and launch the docker,
     --cap-add=CAP_SYS_ADMIN --cap-add=SYS_PTRACE \
     --device=/dev/kfd --device=/dev/dri --device=/dev/mem \
     -v /data/llama-3.1:/data/llm \
-    docker pull rocm/vllm-dev:main
+    rocm/vllm-dev:main
 
 ### Benchmark with AMD vLLM Docker
 
